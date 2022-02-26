@@ -15,8 +15,10 @@ phases:
       - curl -qL -o jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq
       - mv jq /usr/local/bin 
       - echo "Install Hashicorp Terraform"
+      - apt-get update
+      - apt-get install zip -y
       - wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
-      - unzip -qq terraform_1.1.0_linux_amd64.zip -d .
+      - unzip -qq $CODEBUILD_SRC_DIR/terraform_1.1.0_linux_amd64.zip -d $CODEBUILD_SRC_DIR/
       - mv terraform /usr/local/bin
       - ls -lrt $CODEBUILD_SRC_DIR/
       - cd $CODEBUILD_SRC_DIR/terraform/
