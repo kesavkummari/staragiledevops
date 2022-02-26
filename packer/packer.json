@@ -1,0 +1,46 @@
+{
+    "variables": {
+        "packer_profile": "packer",
+        "applicaiton_name": "staragile",
+        "application_version": "1.0.0",
+        "region": "us-east-1",
+        "instance_type": "t2.micro",
+        "source_ami": "ami-083654bd07b5da81d",
+        "ami_aws_account_id": "156779398815"
+    },
+    "builders": [
+        {
+            "name": "{{user `applicaiton_name`}}",
+            "type": "amazon-ebs",
+            "ssh_username": "ubuntu",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true",
+            "associate_public_ip_address": "true", 
+            "region": "{{user `region`}}",
+            "source_ami": "{{user `source_ami`}}",
+            "instance_type": "{{user `instance_type`}}",
+            "iam_instance_profile": "{{user `packer_profile`}}",
+            "ami_name": "{{user `applicaiton_name`}}-{{user `application_version`}}",
+            "tags": {
+                "Name": "{{user `applicaiton_name`}}",
+                "CreatedBy": "Packer"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt update",
+                "sudo apt install software-properties-common -y",
+                "sudo apt install git curl wget -y",
+                "sudo apt-add-repository ppa:ansible/ansible",
+                "sudo apt update",
+                "sudo apt install apache2 -y",
+                "sudo touch /tmp/staragile.txt",
+                "sudo apt install ansible -y"
+            ]
+        }
+    ]
+
+}
