@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Packer - Build Ubuntu Image') {
+      steps {
+        sh """
+        #!/bin/bash
+        cd packer
+        packer init .
+        packer build -force .
+        """
+      }
+    }
+  }
+}
