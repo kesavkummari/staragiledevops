@@ -1,6 +1,6 @@
 {
     "variables": {
-        "packer_profile": "packer",
+        "packer_profile": "packer-ec2-s3",
         "applicaiton_name": "staragile",
         "application_version": "1.0.0",
         "region": "us-east-1",
