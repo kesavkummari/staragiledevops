@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh """
         #!/bin/bash
-        cd ${WORKSPACE}/packer
+        cd ${WORKSPACE}/staragiledevops/packer
         packer init .
         packer build -force .
         """
