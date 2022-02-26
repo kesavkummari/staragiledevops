@@ -1,67 +1,53 @@
 pipeline {
     agent any 
+    tools {
+        maven 'maven'
+        jdk 'java'
+    }
     stages {
         // stage('SonarQube - Static Code Analysis'){
         //     steps  {
-        //         withMaven(maven : 'maven'){
-        //             sh 'mvn clean verify sonar:sonar -DskipTests'
-        //         }
+        //        sh 'mvn clean verify sonar:sonar -DskipTests'
         //     }
         // } 
         stage('Clean'){
             steps  {
-                withMaven(maven : 'maven'){
-                    sh 'mvn clean'
-                }
+                sh 'mvn clean'
             }
         }
         stage('Validate') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn validate'
-                } 
+                sh 'mvn validate'   
             }
         }
         stage('Compile') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn compile'
-                } 
+                sh 'mvn compile'
             }
         }
         stage('Test') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn test -DskipTests'
-                } 
+                sh 'mvn test -DskipTests' 
             }
         }
         stage('Install') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn install -DskipTests'
-                } 
+                sh 'mvn install -DskipTests'
             }
         }
         stage('Verify') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn verify -DskipTests'
-                } 
+                sh 'mvn verify -DskipTests'
             }
         }
         stage('Package') { 
             steps {
-                withMaven(maven : 'maven'){
-                    sh 'mvn package -DskipTests'
-                } 
+                sh 'mvn package -DskipTests'
             }
         }
         // stage('Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
         //     steps {
-        //         withMaven(maven : 'maven'){
-        //             sh 'mvn deploy -DskipTests'
-        //         } 
+                // sh 'mvn deploy -DskipTests'
         //     }
         // }
         
