@@ -1,0 +1,79 @@
+pipeline {
+    agent any 
+    stages {
+        // stage('SonarQube - Static Code Analysis'){
+        //     steps  {
+        //         withMaven(maven : 'maven'){
+        //             sh 'mvn clean verify sonar:sonar -DskipTests'
+        //         }
+        //     }
+        // } 
+        stage('Clean'){
+            steps  {
+                withMaven(maven : 'maven'){
+                    sh 'mvn clean'
+                }
+            }
+        }
+        stage('Validate') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn validate'
+                } 
+            }
+        }
+        stage('Compile') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn compile'
+                } 
+            }
+        }
+        stage('Test') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn test -DskipTests'
+                } 
+            }
+        }
+        stage('Install') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn install -DskipTests'
+                } 
+            }
+        }
+        stage('Verify') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn verify -DskipTests'
+                } 
+            }
+        }
+        stage('Package') { 
+            steps {
+                withMaven(maven : 'maven'){
+                    sh 'mvn package -DskipTests'
+                } 
+            }
+        }
+        // stage('Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
+        //     steps {
+        //         withMaven(maven : 'maven'){
+        //             sh 'mvn deploy -DskipTests'
+        //         } 
+        //     }
+        // }
+        
+        // stage('Delivery - Deploy a Artifact staragile-3.1.0.war file to Tomcat Server '){
+        //     steps{
+        //         sh 'curl -u admin:redhat@123 -T target/**.war "http://18.116.20.170:8080/manager/text/deploy?path=/staragile&update=true"' 
+        //     }
+        // }
+        // stage('SmokeTest'){
+        //     steps{
+        //         sh 'curl --retry-delay 10 --retry 5 "http://18.116.20.170:8080/staragile"' 
+        //     }
+        // }
+    }
+}

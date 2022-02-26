@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.example</groupId>
+	<artifactId>staragile</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+
+	<name>staragile</name>
+	<description>DevOps Demo Project - staragile DevOps Project</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+ 		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>11</java.version>
+		<surefire.version>3.0.0-M5</surefire.version>
+		<jacoco.version>0.7.9</jacoco.version>
+		
+		<!-- SonarQube Integration 
+        <sonar.projectKey>softobiz-devops</sonar.projectKey>
+        <sonar.organization>softobiz-devops</sonar.organization>
+        <sonar.host.url>http://18.118.189.10:9000</sonar.host.url>
+        <sonar.login>d62c8bf45df00bfbcb76ce3cc101d496b8d137f1</sonar.login>
+		-->
+	</properties>
+	<!--
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>jfrog.codewithkesav.com-snapshots</name>
+			<url>http://18.220.154.70:8081/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	
+		<repository>
+			<id>central</id>
+			<name>jfrog.codewithkesav.com-releases</name>
+			<url>http://18.220.154.70:8081/artifactory/libs-release-local</url>
+		</repository>
+	</distributionManagement>
+	-->
+	<scm>
+		<connection>scm:git:git@github.com:kesavkummari/staragiledevops.git</connection>
+		<developerConnection>scm:git:git@github.com:kesavkummari/staragiledevops.git</developerConnection>
+		<url>git@github.com:kesavkummari/staragiledevops.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+<!--		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency> 
+-->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-surefire-plugin</artifactId>
+			  <version>${surefire.version}</version><!--$NO-MVN-MAN-VER$-->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+        	</plugin>
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>${jacoco.version}</version>
+			    <executions>
+			        <execution>
+			            <id>default-prepare-agent</id>
+			            <goals><goal>prepare-agent</goal></goals>
+			        </execution>
+			        <execution>
+			            <id>default-report</id>
+			            <phase>prepare-package</phase>
+			            <goals><goal>report</goal></goals>
+			        </execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
