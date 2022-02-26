@@ -6,7 +6,10 @@ pipeline {
       steps {
         sh """
         #!/bin/bash
-        cd ${WORKSPACE}/staragiledevops/packer
+        pwd
+        ls -lrt
+        ${WORKSPACE}/staragiledevops/packer/
+        ls -lrt
         packer init .
         packer build -force .
         """
