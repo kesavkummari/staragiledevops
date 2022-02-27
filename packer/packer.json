@@ -39,6 +39,13 @@
         {
             "type": "shell",
             "inline": [
+                "sudo add-apt-repository --yes --update ppa:ansible/ansible",
+                "sudo apt-get install ansible -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
                 "sudo apt install git -y"
             ]
         },
@@ -57,7 +64,8 @@
         {
             "type": "shell",
             "inline": [
-                "sudo apt install unzip -y"
+                "sudo apt update",
+                "sudo apt-get install zip -y"
             ]
 
         },
