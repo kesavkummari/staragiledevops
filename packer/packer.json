@@ -3,9 +3,9 @@
         "packer_profile": "packer-ec2-s3",
         "applicaiton_name": "staragile",
         "application_version": "1.0.0",
-        "region": "us-east-1",
+        "region": "ap-south-1",
         "instance_type": "t2.micro",
-        "source_ami": "ami-083654bd07b5da81d",
+        "source_ami": "ami-0851b76e8b1bce90b",
         "ami_aws_account_id": "156779398815"
     },
     "builders": [
@@ -73,6 +73,11 @@
             "type": "shell",
             "inline": [
                 "sudo apt-add-repository ppa:ansible/ansible",
+<<<<<<< HEAD
+=======
+                "sudo apt update",
+                "sudo apt install apache2 -y",
+>>>>>>> c0a63b83b3d3197718507b096feed834b77142b7
                 "sudo apt install ansible -y"
             ]
         },
