@@ -33,13 +33,61 @@
             "type": "shell",
             "inline": [
                 "sudo apt update",
-                "sudo apt install software-properties-common -y",
-                "sudo apt install git curl wget -y",
+                "sudo apt install software-properties-common -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt install git -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt install curl -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt install wget -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt install unzip -y"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "awscli.sh"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "inline": [
                 "sudo apt-add-repository ppa:ansible/ansible",
-                "sudo apt update",
-                "sudo apt install apache2 -y",
-                "sudo touch /tmp/staragile.txt",
                 "sudo apt install ansible -y"
+            ]
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "./tomcat-install.yml",
+            "extra_arguments": [
+                "-vvvv"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://staragiledevops/staragile_src.zip /opt/tomcat/webapps/",
+                "sudo unzip /opt/tomcat/webapps/target/staragile_src.zip"
             ]
         }
     ]
