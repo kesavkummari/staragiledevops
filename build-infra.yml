@@ -18,8 +18,13 @@ phases:
       - wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
       - unzip -fo terraform_1.1.0_linux_amd64.zip
       - ls -lrt
-      - sudo mv terraform_* /usr/local/bin
-      - sudo mv /usr/local/bin/terraform_* /usr/local/bin/terraform
+      - mv terraform_* terraform
+      - pwd
+      - ls -lrt
+      - mv terraform /usr/local/bin/
+      - pwd
+      - ls -lrt /usr/local/bin/terraform
+      #- sudo mv /usr/local/bin/terraform_* /usr/local/bin/terraform
       - ls -lrt $CODEBUILD_SRC_DIR/
       - cd $CODEBUILD_SRC_DIR/
       - terraform -v 
