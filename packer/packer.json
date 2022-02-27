@@ -70,18 +70,6 @@
 
         },
         {
-            "type": "shell",
-            "inline": [
-                "sudo apt-add-repository ppa:ansible/ansible",
-<<<<<<< HEAD
-=======
-                "sudo apt update",
-                "sudo apt install apache2 -y",
->>>>>>> c0a63b83b3d3197718507b096feed834b77142b7
-                "sudo apt install ansible -y"
-            ]
-        },
-        {
             "type": "ansible-local",
             "playbook_file": "./tomcat-install.yml",
             "extra_arguments": [
