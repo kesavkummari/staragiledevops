@@ -19,22 +19,22 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test -DskipTest'
+                sh 'mvn test -DskipTests'
             }
         }
         stage('Install') {
             steps {
-                sh 'mvn install -DskipTest'
+                sh 'mvn install -DskipTests'
             }
         }
         stage('Verify') {
             steps {
-                sh 'mvn verify -DskipTest'
+                sh 'mvn verify -DskipTests'
             }
         }
         stage('Package') {
             steps {
-                sh 'mvn packege -DskipTest'
+                sh 'mvn packege -DskipTests'
             }
         }
     }
