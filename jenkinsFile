@@ -1,20 +1,7 @@
 node {
     stage('Clean'){
-        sh 'mvn clean'
-    }
-    stage('Validate'){
-        sh 'mvn validate'
-    }
-    stage('Compile'){
-        sh 'mvn compile'
-    }
-    stage('Test'){
-        sh 'mvn test -DskipTests'
-    }
-    stage('Install'){
-        sh 'mvn install -DskipTests'
-    }
-    stage('Verify'){
-        sh 'mvn verify -DskipTests'
+      withMaven {
+         sh 'mvn clean'
+      }
     }
 }
