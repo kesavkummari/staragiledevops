@@ -1,8 +1,8 @@
 node {
-    git config --global --unset credential.helper
-    git config --system --unset credential.helper
-    git url: 'https://github.com/kesavkummari/staragiledevops.git', branch: 'feature'
-    def mvnHome = tool 'M3'
-    sh "${mvnHome}/bin/mvn -B verify"
-    
+  stage ('Build') {
+    git url: 'https://github.com/kesavkummari/staragiledevops.git'
+    withMaven {
+      sh "mvn clean verify"
+    }
+  }
 }
