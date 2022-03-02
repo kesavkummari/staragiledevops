@@ -1,7 +1,7 @@
 node {
-    def mvnHome
-    stage('Prepare'){
-         git url: 'git@github.com:kesavkummari/staragiledevops.git', branch: 'feature'
-         mvnHome = tool 'maven'
-    }
+   def mvnHome
+   stage('Prepare') {
+      git url: 'git@github.com:keshavkummari/devops.git', branch: 'master'
+      mvnHome = tool 'maven'
+   }
 }
