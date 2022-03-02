@@ -1,5 +1,5 @@
 node {
-    def mvn_version = 'M3'
+    def mvn_version = '3.6.3'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) 
     {
         git config --global --unset credential.helper
