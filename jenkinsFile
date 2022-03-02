@@ -1,7 +1,7 @@
 node {
-    stage('Clean'){
-      withMaven {
-         sh 'mvn clean'
-      }
+    def mvnHome
+    stage('Prepare'){
+         git url: 'git@github.com:kesavkummari/staragiledevops.git', branch: 'feature'
+         mvnHome = tool 'maven'
     }
 }
