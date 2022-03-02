@@ -1,9 +1,11 @@
 node {
-   def mvn_version = 'M3'
-   stage('Prepare') {
-      git config --global --unset credential.helper
-      git config --system --unset credential.helper
-      git url: 'git@github.com:kesavkummari/staragiledevops.git', branch: 'feature'
-      mvnHome = tool 'maven'
-   }
+    def mvn_version = 'M3'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) 
+    {
+        git config --global --unset credential.helper
+        git config --system --unset credential.helper
+        git url: 'git@github.com:kesavkummari/staragiledevops.git', branch: 'feature'
+        sh "mvn clean"
+    }
+
 }
