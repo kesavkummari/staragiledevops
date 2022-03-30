@@ -16,9 +16,9 @@ phases:
       - mv jq /usr/local/bin 
       - echo "Install Hashicorp Terraform"
       - wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
-      - unzip -f terraform_1.1.0_linux_amd64.zip
       - ls -lrt
       - pwd
+      - unzip terraform_1.1.0_linux_amd64.zip
       - ls -lrt
       - mv terraform /usr/local/bin/
       - pwd
