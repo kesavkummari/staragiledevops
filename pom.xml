@@ -7,8 +7,8 @@
 	<version>2.0.0</version>
 	<packaging>war</packaging>
 
-	<name>stardevops</name>
-	<description>StarAgile Demo Java WebApplication Project</description>
+	<name>Cloud Binary</name>
+	<description>Cloud Binary Demo Java WebApplication Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
