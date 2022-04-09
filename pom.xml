@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>cloudbinary</artifactId>
+	<artifactId>stardevops</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<name>cloudbinary</name>
-	<description>DevOps Demo Project - cloudbinary DevOps Project</description>
+	<name>stardevops</name>
+	<description>DevOps Demo Project - stardevops DevOps Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
