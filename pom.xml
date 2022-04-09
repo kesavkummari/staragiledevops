@@ -26,12 +26,12 @@
 		<surefire.version>3.0.0-M5</surefire.version>
 		<jacoco.version>0.7.9</jacoco.version>
 		
-		<!-- SonarQube Integration 
-        <sonar.projectKey>softobiz-devops</sonar.projectKey>
-        <sonar.organization>softobiz-devops</sonar.organization>
-        <sonar.host.url>http://18.118.189.10:9000</sonar.host.url>
-        <sonar.login>d62c8bf45df00bfbcb76ce3cc101d496b8d137f1</sonar.login>
-		-->
+		<!-- SonarQube Integration -->
+        <sonar.projectKey>stardevops</sonar.projectKey>
+        <sonar.organization>stardevops</sonar.organization>
+        <sonar.host.url>http://54.86.23.151:9000</sonar.host.url>
+        <sonar.login>70f2cfc2e547fdb1b8ec1225d58ce74abfb91426</sonar.login>
+
 	</properties>
 	<!--
 	<distributionManagement>
