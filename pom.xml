@@ -29,7 +29,7 @@
 		<!-- SonarQube Integration -->
         <sonar.projectKey>stardevops</sonar.projectKey>
         <sonar.organization>stardevops</sonar.organization>
-        <sonar.host.url>http://54.86.23.151:9000</sonar.host.url>
+        <sonar.host.url>http://18.234.54.47:9000</sonar.host.url>
         <sonar.login>70f2cfc2e547fdb1b8ec1225d58ce74abfb91426</sonar.login>
 
 	</properties>
