@@ -38,12 +38,12 @@
 	    <repository>
         	<id>central</id>
 	        <name>jfrog.staragile.com-releases</name>
-        	<url>http://54.210.188.242:8081/artifactory/staragile-lib-local-snapshot</url>
+        	<url>http://54.210.188.242:8082/artifactory/staragile-lib-local-snapshot/</url>
 	  </repository>
 	    <snapshotRepository>
              <id>snapshots</id>
 	        <name>jfrog.staragile.com-snapshots</name>
-        	<url>http://54.210.188.242:8081/artifactory/staragile-lib-local-snapshot</url>
+        	<url>http://54.210.188.242:8082/artifactory/staragile-lib-local-snapshot/</url>
 	    </snapshotRepository>
 	</distributionManagement>
 	
