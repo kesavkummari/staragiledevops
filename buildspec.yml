@@ -1,1 +1,23 @@
-
+version: 0.2 
+phases:
+  install:
+    runtime-versions:
+      java : corretto8
+  pre_build:
+    commands:
+      - echo "pre-build started `date`"
+      - pwd
+      - ls -lrta
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean validate compile test package verify install -DskipTests
+      - pwd
+      - ls -lrta
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/cloudbinary-5.0.0.war
+    # - '**/*'
