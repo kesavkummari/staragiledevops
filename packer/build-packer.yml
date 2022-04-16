@@ -4,8 +4,7 @@ phases:
   pre_build:
     commands:
       - echo "Install Hashicopr Packer"
-      - curl -O https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip 
-      - unzip packer_1.8.0_linux_amd64.zip
+      - curl -qL -o https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip && unzip packer.zip 
       - mv packer /usr/local/bin
       - echo "Install JQ"
       - curl -qL -o jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq
