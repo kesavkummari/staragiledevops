@@ -14,7 +14,6 @@
         "name": "{{user `applicaiton_name`}}",
         "type": "amazon-ebs",
         "ssh_username": "ubuntu",
-        "profile": "devops",
         "force_deregister": "true",
         "force_delete_snapshot": "true",
         "associate_public_ip_address": "true",
