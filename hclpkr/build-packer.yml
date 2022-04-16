@@ -15,7 +15,7 @@ phases:
       - mv jq /usr/local/bin 
       - pwd
       - ls -lrt
-      - cd $CODEBUILD_SRC_DIR/packer/
+      - cd $CODEBUILD_SRC_DIR/hclpkr/
       - packer validate packer.json
   build:
     commands:
@@ -25,7 +25,7 @@ phases:
       - aws configure set aws_secret_access_key `jq -r '.SecretAccessKey' aws_credentials.json` 
       - aws configure set aws_session_token `jq -r '.Token' aws_credentials.json` 
       - cat aws_credentials.json
-      - cd $CODEBUILD_SRC_DIR/packer/
+      - cd $CODEBUILD_SRC_DIR/hclpkr/
       - ls -lrta
       - echo "Validation has been competed `date`"
       #- packer validate packer.json
