@@ -26,9 +26,9 @@ phases:
       - cat aws_credentials.json
       - cd $CODEBUILD_SRC_DIR/hclpkr/
       - ls -lrta
-      - echo "Validation has been competed `date`"
-      #- packer validate packer.json
-      #- packer build packer.json
+      - echo "Build Started `date`"
+      - packer build packer.json
+      - echo "Build Completed `date`"
   post_build:
     commands:
       - echo "Packer Job is completed on `date`"
