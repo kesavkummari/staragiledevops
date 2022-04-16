@@ -1,0 +1,57 @@
+{
+    "variables":{
+        "packer_profile": "pkr-ec2-s3",
+        "applicaiton_name": "cloudbinary",
+        "applicaiton_version": "1.0.0",
+        "region": "us-east-1",
+        "instance_type": "t2.micro",
+        "source_ami": "ami-083654bd07b5da81d",
+        "ami_aws_account_id": "156779398815"
+
+    },
+    "builders": [
+    {
+        "name": "{{user `applicaiton_name`}}",
+        "type": "amazon-ebs",
+        "ssh_username": "ubuntu",
+        "profile": "devops",
+        "force_deregister": "true",
+        "force_delete_snapshot": "true",
+        "associate_public_ip_address": "true",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "iam_instance_profile": "{{user `packer_profile`}}",
+        "ami_name": "{{user `applicaiton_name`}}-{{user `applicaiton_version`}}",
+        "tags": {
+                "Name": "{{user `applicaiton_name`}}",
+                "CreatedBy": "HasiCorp Packer"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo apt-get install apache2 -y",
+                "sudo apt-get install software-properties-common -y",
+                "sudo apt-get install git curl wget unzip -y",
+                "sudo apt-add-repository ppa:ansible/ansible",
+                "sudo apt-get install ansible -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "pwd",
+                "cd /opt/",
+                "git clone https://github.com/keshavkummari/keshavkummari.git",
+                "cp -pvr /opt/keshavkummari /var/www/html/",
+                "ls -lrt /var/www/html/"
+
+            ]
+        }
+    ]
+
+}
