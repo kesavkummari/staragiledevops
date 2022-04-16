@@ -1,0 +1,24 @@
+---
+- name: Deploy Cloud Binary Artifact Unto EC2
+  hosts: 'all'
+  become: yes
+  tasks:
+    - name: Install Pip
+      apt: name=python-pip state=latest
+
+    - name: Install Futures 
+      pip:
+        name: [ "futures" ]
+        extra_args: "--user"
+
+    - name: Unzip the artifact i.e. /home/ubuntu/cloudbinary.zip
+      unarchive:
+        src: /home/ubuntu/cloudbinary.zip
+        dest: /home/ubuntu
+        remote_src: yes  
+
+    - name: Deploy cloudbinary-5.0.0.war unto DocumentRoot
+      copy:
+        src: /home/ubuntu/cloudbinary-5.0.0.war
+        dest: /opt/tomcat/webapps/
+        owner: ubuntu 

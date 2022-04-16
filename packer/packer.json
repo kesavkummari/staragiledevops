@@ -34,22 +34,51 @@
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
-                "sudo apt-get install apache2 -y",
-                "sudo apt-get install software-properties-common -y",
-                "sudo apt-get install git curl wget unzip -y",
-                "sudo apt-add-repository ppa:ansible/ansible",
-                "sudo apt-get install ansible -y"
+                "sudo apt-get install software-properties-common -y"
             ]
         },
         {
             "type": "shell",
             "inline": [
-                "pwd",
-                "cd /opt/",
-                "git clone https://github.com/keshavkummari/keshavkummari.git",
-                "cp -pvr /opt/keshavkummari /var/www/html/",
-                "ls -lrt /var/www/html/"
-
+                "sudo apt-get update",
+                "sudo apt-get install git curl wget unzip -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-add-repository ppa:ansible/ansible",
+                "sudo apt-get update",
+                "sudo apt-get install ansible -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "install-awscli.sh"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo snap install amazon-ssm-agent --classic",
+                "sudo systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service",
+                "sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "aws s3 cp s3://kk-java/cloudbinary.zip /home/ubuntu/cloudbinary.zip"
+            ]
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "./deploy.yml",
+            "extra_arguments": [
+                "-vvvv"
             ]
         }
     ]
