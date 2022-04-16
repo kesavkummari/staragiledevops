@@ -70,7 +70,7 @@
         {
             "type": "shell",
             "inline": [
-                "aws s3 cp s3://kk-java/cloudbinary.zip /home/ubuntu/cloudbinary.zip"
+                "aws s3 cp s3://kk-java/cloudbinary /home/ubuntu/cloudbinary"
             ]
         },
         {
