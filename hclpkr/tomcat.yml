@@ -26,7 +26,7 @@
       apt: name=curl state=latest
 
     - name: Downloading Apache Tomcat tar.
-      shell: wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.75/bin/apache-tomcat-8.5.75.tar.gz    
+      shell: wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz   
       args:
         chdir: /tmp
 

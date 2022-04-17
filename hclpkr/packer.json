@@ -1,7 +1,7 @@
 {
     "variables":{
         "packer_profile": "pkr-ec2-s3",
-        "applicaiton_name": "lms-cloudbinary",
+        "applicaiton_name": "webapplication",
         "applicaiton_version": "1.0.0",
         "region": "us-east-1",
         "instance_type": "t2.micro",
