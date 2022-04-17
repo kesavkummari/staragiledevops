@@ -25,4 +25,4 @@
     - name: Deploy cloudbinary-5.0.0.war unto DocumentRoot
       copy:
         src: /home/ubuntu/target/cloudbinary-5.0.0.war
-        dest: /home/ubuntu/
+        dest: /opt/tomcat/webapps/

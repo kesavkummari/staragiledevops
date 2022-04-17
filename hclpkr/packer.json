@@ -73,6 +73,13 @@
         },
         {
             "type": "ansible-local",
+            "playbook_file": "./tomcat.yml",
+            "extra_arguments": [
+                "-vvvv"
+            ]
+        },
+        {
+            "type": "ansible-local",
             "playbook_file": "./deploy.yml",
             "extra_arguments": [
                 "-vvvv"
