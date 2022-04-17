@@ -1,0 +1,46 @@
+version: 0.2
+
+env:
+  parameter-store:
+    AWS_ACCESS_KEY_ID_PARAM: /CodeBuild/AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY_PARAM: /CodeBuild/AWS_SECRET_ACCESS_KEY
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo "Download JQ"
+      - curl -qL -o jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq
+      - mv jq /usr/local/bin 
+
+      - echo "Install Hashicorp Terraform"
+      - wget https://releases.hashicorp.com/terraform/1.1.8/terraform_1.1.8_linux_amd64.zip
+      - unzip terraform_1.1.8_linux_amd64.zip
+      - mv terraform /usr/local/bin
+      - ls -lrt $CODEBUILD_SRC_DIR
+      - cd $CODEBUILD_SRC_DIR/hclterraform/
+      - terraform -v 
+      - echo "Configuring AWS Credentials"
+      - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PARAM
+      - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PARAM
+      - terraform init 
+      - terraform validate 
+      - pwd
+      - ls -lrta 
+
+  build:
+    commands:
+      - echo "Executing Build Phase"
+      - ls -lrt $CODEBUILD_SRC_DIR
+      - cd $CODEBUILD_SRC_DIR/hclterraform/
+      - pwd
+      - ls -lrta
+      - terraform -v 
+      - terraform plan
+      #- terraform plan -auto-approve 
+      #- terraform apply -auto-approve 
+  post_build:
+    commands:
+      - echo "Infra Job is completed on `date`"
