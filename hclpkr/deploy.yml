@@ -3,8 +3,13 @@
   hosts: 'all'
   become: yes
   tasks:
+
+    - name: Update the Repository 
+      apt: update_cache=yes
+      ignore_errors: yes
+
     - name: Install Pip
-      apt: name=python-pip state=latest
+      apt: name=python3-pip state=latest
 
     - name: Install Futures 
       pip:
