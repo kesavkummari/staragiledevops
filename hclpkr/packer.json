@@ -7,7 +7,6 @@
         "instance_type": "t2.micro",
         "source_ami": "ami-083654bd07b5da81d",
         "ami_aws_account_id": "156779398815"
-
     },
     "builders": [
     {
@@ -62,7 +61,6 @@
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
-                "sudo snap install amazon-ssm-agent --classic",
                 "sudo systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service",
                 "sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service"
             ]

@@ -11,13 +11,13 @@
         name: [ "futures" ]
         extra_args: "--user"
 
-    - name: Unzip the artifact i.e. /home/ubuntu/cloudbinary.zip
+    - name: Unzip the artifact i.e. /home/ubuntu/cloudbinary
       unarchive:
-        src: /home/ubuntu/cloudbinary.zip
+        src: /home/ubuntu/cloudbinary
         dest: /home/ubuntu
         remote_src: yes  
 
     - name: Deploy cloudbinary-5.0.0.war unto DocumentRoot
       copy:
-        src: /home/ubuntu/cloudbinary-5.0.0.war
+        src: /home/ubuntu/target/cloudbinary-5.0.0.war
         dest: /home/ubuntu/
