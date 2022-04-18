@@ -50,7 +50,7 @@
         mode: u+rwx,g-rwx,o-x
 
     - name: Upload a tomcat.service file unto /etc/systemd/system/
-      get_url:
+      copy:
         src: ./tomcat.service
         dest: /etc/systemd/system/tomcat.service
 
