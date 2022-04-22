@@ -33,21 +33,20 @@
         <sonar.login>d62c8bf45df00bfbcb76ce3cc101d496b8d137f1</sonar.login>
 		-->
 	</properties>
-	<!--
-	<distributionManagement>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>jfrog.codewithkesav.com-snapshots</name>
-			<url>http://18.220.154.70:8081/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-	
-		<repository>
-			<id>central</id>
-			<name>jfrog.codewithkesav.com-releases</name>
-			<url>http://18.220.154.70:8081/artifactory/libs-release-local</url>
-		</repository>
-	</distributionManagement>
-	-->
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog.cloudbinary.io-releases</name>
+        <url>http://13.126.176.84:8081/artifactory/lib-snashot-cloudbinary-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog.cloudbinary.io-snapshots</name>
+        <url>http://13.126.176.84:8081/artifactory/lib-snashot-cloudbinary-local</url>
+    </snapshotRepository>
+</distributionManagement>
+
 	<scm>
 		<connection>scm:git:git@github.com:kesavkummari/staragiledevops.git</connection>
 		<developerConnection>scm:git:git@github.com:kesavkummari/staragiledevops.git</developerConnection>
