@@ -36,7 +36,7 @@
 
 <distributionManagement>
     <repository>
-        <id>central</id>
+        <id>default</id>
         <name>jfrog.cloudbinary.io-releases</name>
         <url>http://13.126.176.84:8081/artifactory/lib-snashot-cloudbinary-local</url>
     </repository>
