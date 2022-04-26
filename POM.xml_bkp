@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <profiles>
+    <profile>
+      <id>default</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <name>Local</name>
+          <url>http://3.111.219.176:8082/artifactory/libs-snapshot-local/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+  </activeProfiles>
+  <servers>
+    <server>
+      <id>central</id>
+      <username>admin</username>
+      <password>Redhat@123</password>
+    </server>
+  </servers>
+</settings>
