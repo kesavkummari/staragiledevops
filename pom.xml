@@ -34,16 +34,17 @@
 
 	</properties>
 	
+	<!-- Jfrog Integration with POM.xml file -->
 <distributionManagement>
     <snapshotRepository>
         <id>snapshots</id>
         <name>jfrog.cloudbinary.io-snapshots</name>
-        <url>http://3.111.219.176:8081/artifactory/libs-snapshot-local</url>
+        <url>http://3.87.82.115:8081/artifactory/lib-cloudbinary-local/</url>
     </snapshotRepository>
     <repository>
         <id>central</id>
         <name>jfrog.cloudbinary.io-releases</name>
-        <url>http://3.111.219.176:8081/artifactory/libs-release-local</url>
+        <url>http://3.87.82.115:8081/artifactory/lib-cloudbinary-local/</url>
     </repository>
 </distributionManagement>
 	
