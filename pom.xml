@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 
 	<name>cloudops</name>
-	<description>Cloud Ops Demo Java WebApplication Project</description>
+	<description>CloudOps Java WebApplication Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
