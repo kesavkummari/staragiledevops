@@ -39,12 +39,12 @@
     <snapshotRepository>
         <id>snapshots</id>
         <name>jfrog.cloudbinary.io-snapshots</name>
-        <url>http://3.87.82.115:8081/artifactory/lib-cloudbinary-local/</url>
+        <url>http://54.163.9.206:8081/artifactory/lib-cloudbinary-local/</url>
     </snapshotRepository>
     <repository>
         <id>central</id>
         <name>jfrog.cloudbinary.io-releases</name>
-        <url>http://3.87.82.115:8081/artifactory/lib-cloudbinary-local/</url>
+        <url>http://54.163.9.206:8081/artifactory/lib-cloudbinary-local/</url>
     </repository>
 </distributionManagement>
 	
