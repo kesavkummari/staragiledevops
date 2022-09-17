@@ -33,7 +33,7 @@
         <sonar.login>ac36641c868673e6ab80d0d10c78ee335b8e58ad</sonar.login>
 
 	</properties>
-	
+	<!--
 <distributionManagement>
     <snapshotRepository>
         <id>snapshots</id>
@@ -46,7 +46,14 @@
         <url>http://3.111.219.176:8081/artifactory/libs-release-local</url>
     </repository>
 </distributionManagement>
-	
+-->
+<distributionManagement>
+  <repository>
+    <id>example-repo-local</id>
+    <name>example-repo-local</name>
+    <url>https://kesavkummari.jfrog.io/artifactory/example-repo-local/</url>
+  </repository>
+</distributionManagement>
 	
 	<scm>
 		<connection>scm:git:git@github.com:kesavkummari/staragiledevops.git</connection>
