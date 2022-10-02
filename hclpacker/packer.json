@@ -1,0 +1,73 @@
+{
+    "variables":{
+        "packer_profile": "devops-packer-s3-vpc-ec2",
+        "application_name": "stardevops",
+        "application_version": "1.0.0",
+        "ami_aws_account_id": "266934144328",
+        "region": "us-east-1",
+        "source_ami": "ami-08c40ec9ead489470",
+        "instance_type": "t2.micro"
+    },
+    "builders": [
+        {
+            "name": "{{ user `application_name` }}",
+            "type": "amazon-ebs",
+            "profile": "default",
+            "ssh_username": "ubuntu",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true",
+            "associate_public_ip_address": "true",
+            "region": "{{ user `region` }}",
+            "source_ami": "{{ user `source_ami` }}",
+            "instance_type": "{{ user `instance_type` }}",
+            "iam_instance_profile": "{{ user `packer_profile` }}",
+            "ami_name": "{{ user `application_name` }}-{{ user `application_version` }}",
+            "tags": {
+                "Name": "{{ user `application_name` }}",
+                "CreatedBy": "Packer"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo apt-get install tree -y"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo apt-get install git -y",
+                "sudo apt-get install unzip -y",
+                "sudo apt-get install wget -y"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "web.sh"
+            ]
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "./tomcat-setup.yml",
+            "extra_arguments": [
+                "-vvvv"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /usr/share/tomcat/webapps/",
+                "sudo ls -lrt /usr/share/tomcat/webapps/"
+            ]
+        }
+    ]
+
+}
