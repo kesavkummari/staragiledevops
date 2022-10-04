@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>cloudbinary</artifactId>
-	<version>5.0.0</version>
+	<artifactId>opscloud</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 
 	<name>cloudbinary</name>
@@ -27,15 +27,14 @@
 		<jacoco.version>0.7.9</jacoco.version>
 		
 		<!-- SonarQube Integration -->
-		<!-- SonarQube Integration -->
-		<sonar.organization>cloudbinaryazure</sonar.organization>
-		<sonar.projectKey>azuredevops9am</sonar.projectKey>
+		<sonar.organization>kummari</sonar.organization>
+		<sonar.projectKey>awsopsdemo</sonar.projectKey>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>5d5b77e59e417265ab6d746b786cadb7452ef083</sonar.login>
+		<sonar.login>18c4b670a25e91292d6673cf8345524a6379209b</sonar.login>
 
 	</properties>
 	
-<distributionManagement>
+<!-- <distributionManagement>
     <snapshotRepository>
         <id>snapshots</id>
         <name>jfrog.cloudbinary.io-snapshots</name>
@@ -46,7 +45,7 @@
         <name>jfrog.cloudbinary.io-releases</name>
         <url>http://3.111.219.176:8081/artifactory/libs-release-local</url>
     </repository>
-</distributionManagement>
+</distributionManagement> -->
 	
 	
 	<scm>
