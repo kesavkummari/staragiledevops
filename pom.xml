@@ -27,10 +27,11 @@
 		<jacoco.version>0.7.9</jacoco.version>
 		
 		<!-- SonarQube Integration -->
-        <sonar.projectKey>stardevops</sonar.projectKey>
-        <sonar.organization>stardevops</sonar.organization>
-        <sonar.host.url>http://18.234.54.47:9000</sonar.host.url>
-        <sonar.login>70f2cfc2e547fdb1b8ec1225d58ce74abfb91426</sonar.login>
+		<!-- SonarQube Integration -->
+		<sonar.organization>cloudbinaryazure</sonar.organization>
+		<sonar.projectKey>azuredevops9am</sonar.projectKey>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>5d5b77e59e417265ab6d746b786cadb7452ef083</sonar.login>
 
 	</properties>
 	
