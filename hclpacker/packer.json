@@ -53,21 +53,21 @@
             "scripts": [
                 "web.sh"
             ]
-        },
-        {
-            "type": "ansible-local",
-            "playbook_file": "./tomcat-setup.yml",
-            "extra_arguments": [
-                "-vvvv"
-            ]
-        },
-        {
-            "type": "shell",
-            "inline": [
-                "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /usr/share/tomcat/webapps/",
-                "sudo ls -lrt /usr/share/tomcat/webapps/"
-            ]
         }
+       // {
+       //    "type": "ansible-local",
+       //     "playbook_file": "./tomcat-setup.yml",
+       //     "extra_arguments": [
+       //         "-vvvv"
+       //     ]
+       // },
+       // {
+       //     "type": "shell",
+       //     "inline": [
+       //         "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /usr/share/tomcat/webapps/",
+       //         "sudo ls -lrt /usr/share/tomcat/webapps/"
+       //     ]
+       // }
     ]
 
 }
