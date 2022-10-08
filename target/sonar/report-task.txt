@@ -1,7 +1,0 @@
-organization=kummari
-projectKey=awsopsdemo
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.32648
-dashboardUrl=https://sonarcloud.io/dashboard?id=awsopsdemo
-ceTaskId=AYOg_E2FSYjTWna-aIWn
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYOg_E2FSYjTWna-aIWn

@@ -1,0 +1,34 @@
+version: 0.2
+become: yes
+phases:
+  pre_build:
+    commands:
+      - echo "Install Hashicopr Packer"
+      - curl -O https://releases.hashicorp.com/packer/1.8.3/packer_1.8.3_linux_amd64.zip 
+      - unzip -fo packer_*.zip
+      - ls -lrta
+      - mv packer_* /usr/local/bin
+      - mv /usr/local/bin/packer_* /usr/local/bin/packer
+
+      - curl -qL -o jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq
+      - mv jq /usr/local/bin 
+      - pwd
+      - ls -lrt $CODEBUILD_SRC_DIR
+      - cd $CODEBUILD_SRC_DIR/hclpacker/
+      - packer fix packer.json
+      - packer validate packer.json
+  build:
+    commands:
+      - curl -qL -o aws_credentials.json http://169.254.170.2/$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI > aws_credentials.json 
+      - aws configure set region $AWS_REGION
+      - aws configure set aws_access_key_id `jq -r '.AccessKeyId' aws_credentials.json`
+      - aws configure set aws_secret_access_key `jq -r '.SecretAccessKey' aws_credentials.json` 
+      - aws configure set aws_session_token `jq -r '.Token' aws_credentials.json` 
+      - cat aws_credentials.json
+      - ls -lrt $CODEBUILD_SRC_DIR
+      - cd $CODEBUILD_SRC_DIR/hclpacker/
+      - ls -lrt
+      - packer build $CODEBUILD_SRC_DIR/hclpacker/packer.json
+  post_build:
+    commands:
+      - echo "Packer Job is completed on `date`"

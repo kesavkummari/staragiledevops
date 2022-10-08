@@ -1,46 +1,0 @@
-
-bcom.example.devops.web.WelcomeController#welcome(Lorg/springframework/ui/Model;)Ljava/lang/String;g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java ("startingBlock*¦
-startingBlockg
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java (#¦£
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java ("%
-modelorg.springframework.ui.Model"java.util.HashMap*
-1*Ü
-1g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java (Ä
-Á
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java (
-%0org.slf4j.Logger"__id*8*6*
-(com.example.devops.web.WelcomeController"
-loggeröó
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java ()
-
-%1void"*org.slf4j.Logger#info(Ljava/lang/String;)V*
-
-%0org.slf4j.Logger*
-Processing index request2info(Ljava/lang/String;)Û
-Ø
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java (("
-%2org.springframework.ui.Model"__mapSet*'
-%
-modelorg.springframework.ui.Model*
-
-course*
-
-DevOpsÙ
-Ö
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java	 (
-%3"template!index*,"*
-(com.example.devops.web.WelcomeController*'
-%
-modelorg.springframework.ui.Model"t
-g
-]/Users/ck/gitdemo/staragiledevops/src/main/java/com/example/devops/web/WelcomeController.java (	
-index:%
-modelorg.springframework.ui.ModelB,*
-(com.example.devops.web.WelcomeController

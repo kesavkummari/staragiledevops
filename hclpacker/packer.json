@@ -1,7 +1,7 @@
 {
     "variables":{
         "packer_profile": "devops-packer-s3-vpc-ec2",
-        "application_name": "stardevops",
+        "application_name": "opswork",
         "application_version": "1.0.0",
         "ami_aws_account_id": "266934144328",
         "region": "us-east-1",
@@ -32,8 +32,7 @@
         {
             "type": "shell",
             "inline": [
-                "sudo apt-get update",
-                "sudo apt-get install tree -y"
+                "sudo apt-get update"
             ]
 
         },
@@ -55,17 +54,17 @@
             ]
         },
         {
-            "type": "ansible-local",
-            "playbook_file": "./tomcat-setup.yml",
-            "extra_arguments": [
-                "-vvvv"
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "tomcat.sh"
             ]
         },
         {
             "type": "shell",
             "inline": [
-                "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /usr/share/tomcat/webapps/",
-                "sudo ls -lrt /usr/share/tomcat/webapps/"
+                "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /opt/tomcat/webapps/",
+                "sudo ls -lrt /opt/tomcat/webapps/"
             ]
         }
     ]
