@@ -52,6 +52,20 @@
             "scripts": [
                 "web.sh"
             ]
+        },
+        {
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "tomcat.sh"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://staragiledevops-weekend/opswork.war /opt/tomcat/webapps/",
+                "sudo ls -lrt /opt/tomcat/webapps/"
+            ]
         }
     ]
 
