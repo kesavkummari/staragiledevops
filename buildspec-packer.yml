@@ -15,8 +15,8 @@ phases:
       - pwd
       - ls -lrt $CODEBUILD_SRC_DIR
       - cd $CODEBUILD_SRC_DIR/hclpacker/
-      - packer fix packer.json
-      - packer validate packer.json
+      - sudo packer fix packer.json
+      - sudo packer validate packer.json
   build:
     commands:
       - curl -qL -o aws_credentials.json http://169.254.170.2/$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI > aws_credentials.json 
@@ -28,7 +28,7 @@ phases:
       - ls -lrt $CODEBUILD_SRC_DIR
       - cd $CODEBUILD_SRC_DIR/hclpacker/
       - ls -lrt
-      - packer build packer.json
+      - sudo packer build packer.json
   post_build:
     commands:
       - echo "Packer Job is completed on `date`"
