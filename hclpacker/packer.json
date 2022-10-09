@@ -1,7 +1,7 @@
 {
     "variables":{
         "packer_profile": "devops-packer-s3-vpc-ec2",
-        "application_name": "opswork",
+        "application_name": "opswork1",
         "application_version": "1.0.0",
         "ami_aws_account_id": "266934144328",
         "region": "us-east-1",
