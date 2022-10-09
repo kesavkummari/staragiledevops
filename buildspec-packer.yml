@@ -6,10 +6,12 @@ phases:
       - echo "Install Hashicopr Packer"
       - curl -O https://releases.hashicorp.com/packer/1.8.3/packer_1.8.3_linux_amd64.zip 
       #- unzip -fo packer_*.zip
-      - unzip -fo packer_*.zip
+      - unzip packer_*.zip
       - ls -lrta
-      - mv packer /usr/local/bin
+      - mv packer /usr/local/bin/
       #- mv /usr/local/bin/packer_* /usr/local/bin/packer
+      - pwd
+      - ls -lrt
 
       - curl -qL -o jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq
       - mv jq /usr/local/bin 
