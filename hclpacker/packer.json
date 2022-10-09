@@ -4,8 +4,8 @@
         "application_name": "opswork1",
         "application_version": "1.0.0",
         "ami_aws_account_id": "266934144328",
-        "region": "ap-south-1",
-        "source_ami": "ami-062df10d14676e201",
+        "region": "us-east-1",
+        "source_ami": "ami-08c40ec9ead489470",
         "instance_type": "t2.micro"
     },
     "builders": [
