@@ -31,7 +31,7 @@ phases:
       - ls -lrt $CODEBUILD_SRC_DIR
       - cd $CODEBUILD_SRC_DIR/hclpacker/
       - ls -lrt
-      - packer build packer.json
+      - sudo packer build packer.json
   post_build:
     commands:
       - echo "Packer Job is completed on `date`"
